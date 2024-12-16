@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Garet", serif;
+  background: #f0f0f0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.background img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.content {
+  position: relative;
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+ul li input[type="checkbox"] {
+  margin-right: 15px;
+  transform: scale(1.5);
+}
+
+ul li span {
+  font-size: 1em;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  margin-top: 20px;
+}
+
+.whatsapp-button {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.salvar-pdf-button {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#valorTotalFinal {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#estimativaDeslocamento {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .calendarGoogle {
+    width: 50vw; /* 95% da largura da viewport */
+    height: 50vh; /* 95% da altura da viewport */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+
+  }
+}
+
+.titulos{
+  text-align: center;
+  margin: 30px;
+  color: #2c662d;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #2c662d;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  
+}

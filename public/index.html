@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orçamento Personalizado</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+      text-align: center;
+    }
+    h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #2c662d;
+      text-align: center;
+    }
+    form label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      display: block;
+      color: #333;
+      text-align: left;
+    }
+    form input,
+    form select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .product-item {
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    .product-item:hover {
+      background-color: #e0e0e0;
+    }
+    .product-item input[type="checkbox"] {
+      margin-right: 5px;
+      transform: scale(1.2);
+    }
+    .product-item span {
+      font-size: 16px;
+    }
+    #valorTotalFinal {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .result-container {
+      background-color: #e7f4e4;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #2c662d;
+      text-align: center;
+    }
+    #formaPagamento {
+      display: block;
+      margin: 0 auto;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+    .total-container {
+      font-size: 18px;
+      font-weight: bold;
+      color: #004d00;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .botao-whatsapp {
+      background-color: #25d366;
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+    }
+    .botao-whatsapp:hover {
+      background-color: #20b85d;
+    }
+    .salvar-pdf-button {
+      background-color: #ff9800;
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+    }
+    .salvar-pdf-button:hover {
+      background-color: #e68900;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      border-radius: 0 0 10px 10px;
+    }
+    .background {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .background img {
+      max-width: 50%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+      
+    }
+
+
+    .calendarContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .googleCalendar {
+      width: 80vw; /* 80% da largura da viewport */
+      height: 80vh; /* 80% da altura da viewport */
+      max-width: 800px; /* Largura máxima */
+      max-height: 800px; /* Altura máxima */
+      border: 0;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 600px) {
+      .googleCalendar {
+        width: 95vw; /* 95% da largura da viewport */
+        height: 95vh; /* 95% da altura da viewport */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <img src="https://cdn.glitch.global/8a203079-ef9b-4026-a35a-4697b5640e2d/1.jpg" alt="Imagem inicial" />
+  </div>
+  <div class="container" id="orcamentoContainer">
+    <h3 class="titulos"> Dados do Cliente</h3>
+    <form id="dadosClienteForm">
+      <label for="nomeCliente">Nome do Cliente:</label>
+      <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite seu nome" />
+
+      <label for="nomeNoivo">Nome do(a) Noivo(a):</label>
+      <input type="text" id="nomeNoivo" name="nomeNoivo" placeholder="Nome do noivo(a)" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu email" />
+
+      <label for="whatsapp">WhatsApp:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite seu número de WhatsApp" pattern="[0-9]{10,11}" />
+
+      <label for="dataCasamento">Data do Casamento:</label>
+      <input type="date" id="dataCasamento" name="dataCasamento" />
+
+      <label for="cidadeCasamento">Cidade do Casamento:</label>
+      <input type="text" id="cidadeCasamento" name="cidadeCasamento" placeholder="Digite a cidade" />
+
+      <label for="estadoCasamento">Estado do Casamento:</label>
+      <input type="text" id="estadoCasamento" name="estadoCasamento" placeholder="Digite o estado" />
+
+      <label for="paisCasamento">País do Casamento:</label>
+      <input type="text" id="paisCasamento" name="paisCasamento" placeholder="Digite o país" />
+
+      <label for="horarioCasamento">Horário do Casamento:</label>
+      <input type="time" id="horarioCasamento" name="horarioCasamento" />
+
+      <label for="convidados">Quantidade de Convidados:</label>
+      <input type="number" id="convidados" name="convidados" placeholder="Número de convidados" />
+    </form>
+
+    <h3 class="titulos">Selecione os Produtos e Serviços</h3>
+    <ul id="servicosSelecionados">
+      <li class="product-item"><input type="checkbox" value="500" data-descricao="Sessão de pré-casamento 1 hora e 50 fotos" onchange="calcularParcelamento()" /><span>Sessão de pré-casamento 1 hora e 50 fotos</span></li>
+      <li class="product-item"><input type="checkbox" value="750" data-descricao="Sessão de pré-casamento 2 horas e 150 fotos" onchange="calcularParcelamento()" /><span>Sessão de pré-casamento 2 horas e 150 fotos</span></li>
+      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of do noivo 1 hora" onchange="calcularParcelamento()" /><span>Making of do noivo 1 hora</span></li>
+      <li class="product-item"><input type="checkbox" value="300" data-descricao="Making of do noivo 2 horas" onchange="calcularParcelamento()" /><span>Making of do noivo 2 horas</span></li>
+      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of da noiva 1 hora" onchange="calcularParcelamento()" /><span>Making of da noiva 1 hora</span></li>
+      <li class="product-item"><input type="checkbox" value="300" data-descricao="Making of da noiva 2 horas" onchange="calcularParcelamento()" /><span>Making of da noiva 2 horas</span></li>
+      <li class="product-item"><input type="checkbox" value="3000" data-descricao="Cobertura completa do casamento ao ar livre" onchange="calcularParcelamento()" /><span>Cobertura completa do casamento ao ar livre</span></li>
+      <li class="product-item"><input type="checkbox" value="3000" data-descricao="Cobertura completa do casamento na igreja" onchange="calcularParcelamento()" /><span>Cobertura completa do casamento na igreja</span></li>
+      <li class="product-item"><input type="checkbox" value="800" data-descricao="Cobertura do casamento civil no cartório" onchange="calcularParcelamento()" /><span>Cobertura do casamento civil no cartório</span></li>
+      <li class="product-item"><input type="checkbox" value="1000" data-descricao="Recepção/festa 4 horas" onchange="calcularParcelamento()" /><span>Recepção/festa 4 horas</span></li>
+      <li class="product-item"><input type="checkbox" value="1300" data-descricao="Recepção/festa 5 horas" onchange="calcularParcelamento()" /><span>Recepção/festa 5 horas</span></li>
+      <li class="product-item"><input type="checkbox" value="1600" data-descricao="Recepção/festa 6 horas" onchange="calcularParcelamento()" /><span>Recepção/festa 6 horas</span></li>
+      <li class="product-item"><input type="checkbox" value="2000" data-descricao="Álbum suede 30x30 10 lâminas" onchange="calcularParcelamento()" /><span>Álbum suede 30x30 10 lâminas</span></li>
+      <li class="product-item"><input type="checkbox" value="2500" data-descricao="Álbum madeira 30x30 15 lâminas" onchange="calcularParcelamento()" /><span>Álbum madeira 30x30 15 lâminas</span></li>
+      <li class="product-item"><input type="checkbox" value="3000" data-descricao="Álbum acrílico 30x30 20 lâminas" onchange="calcularParcelamento()" /><span>Álbum acrílico 30x30 20 lâminas</span></li>
+      <li class="product-item"><input type="checkbox" value="1200" data-descricao="Story e reels do dia do casamento" onchange="calcularParcelamento()" /><span>Story e reels do dia do casamento</span></li>
+      <li class="product-item"><input type="checkbox" value="1000" data-descricao="Same Day Edit" onchange="calcularParcelamento()" /><span>Same Day Edit</span></li>
+      <li class="product-item"><input type="checkbox" value="750" data-descricao="Quadro 100x70" onchange="calcularParcelamento()" /><span>Quadro 100x70</span></li>
+      <li class="product-item"><input type="checkbox" value="700" data-descricao="Receber no Pendrive" onchange="calcularParcelamento()" /><span>Receber no Pendrive</span></li>
+      <li class="product-item"><input type="checkbox" value="0" data-descricao="Receber no link" onchange="calcularParcelamento()" /><span>Receber no link</span></li>
+    </ul>
+
+    <div id="valorTotalFinal" class="total-container">Valor total do pacote personalizado: R$ 0</div>
+
+    <label for="formaPagamento">Selecionar forma de pagamento:</label>
+    <select id="formaPagamento" onchange="calcularParcelamento()">
+      <option value="">Escolha a forma de pagamento</option>
+      <option value="pix">PIX (25% de entrada e até 7 parcelas no PIX)</option>
+      <option value="cartao">Cartão de Crédito (até 12x com juros)</option>
+    </select>
+
+    <div id="pagamentoPix" class="pagamento-opcao" style="display:none;">
+      <h4>Pagamento via PIX</h4>
+      <p>Entrada (25%): R$ <span id="pixEntrada"></span></p>
+      <p>Parcelas Restantes (até 7x): R$ <span id="pixParcelas"></span></p>
+    </div>
+
+    <div id="pagamentoCartao" class="pagamento-opcao" style="display:none;">
+      <h4>Pagamento via Cartão de Crédito</h4>
+      <div id="parcelasCartao"></div>
+    </div>
+
+    <div class="notas-adicionais">Deslocamento e despesas de viagem não inclusos.</div>
+
+    <button class="botao-whatsapp" id="botaoWhatsApp">Negociar no WhatsApp</button>
+    
+    <button class="salvar-pdf-button" onclick="salvarPDF()">Salvar Orçamento em PDF</button>
+
+    <!--<h3 class="titulos"> VERIFIQUE NOSSA DISPONIBILIDADE PARA ATENDER SEU CASAMENTO PELA AGENDA ABAIXO </h3>
+    <ul class="calendarGoogle">
+      <iframe class="googleCalendar" src="https://calendar.google.com/calendar/embed?height=750&wkst=1&ctz=America%2FSao_Paulo&showPrint=0&showTabs=0&showTitle=0&showCalendars=0&src=ZGFuaWVsQGRhbmllbGF6ZXZlZG9mb3RvZ3JhZmlhLmNvbQ&color=%23D50000" 
+      style="border-width:0" 
+      frameborder="0" 
+      scrolling="no">
+      </iframe>-->
+    </ul>
+    <footer>
+      
+      
+      <p>Daniel Azevedo Fotografia - Desenvolvedor e idealizador PriceUs © 2024</p>
+    </footer>
+  </div>
+
+
+
+  <div class="background">
+    <img src="https://cdn.glitch.global/8a203079-ef9b-4026-a35a-4697b5640e2d/5.jpg" alt="Imagem final 1" />
+  </div>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function calcularParcelamento() {
+      const checkboxes = document.querySelectorAll('#servicosSelecionados input[type="checkbox"]');
+      let total = 0;
+
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          total += parseFloat(checkbox.value);
+        }
+      });
+
+      const cidade = document.getElementById("cidadeCasamento").value.trim().toLowerCase();
+      const estado = document.getElementById("estadoCasamento").value.trim().toUpperCase();
+      const pais = document.getElementById("paisCasamento").value.trim().toLowerCase();
+
+      const estadosBrasil = {
+        "AC": "ACRE", "AL": "ALAGOAS", "AP": "AMAPÁ", "AM": "AMAZONAS", "BA": "BAHIA",
+        "CE": "CEARÁ", "DF": "DISTRITO FEDERAL", "ES": "ESPÍRITO SANTO", "GO": "GOIÁS", "MA": "MARANHÃO",
+        "MT": "MATO GROSSO", "MS": "MATO GROSSO DO SUL", "MG": "MINAS GERAIS", "PA": "PARÁ", "PB": "PARAÍBA",
+        "PR": "PARANÁ", "PE": "PERNAMBUCO", "PI": "PIAUÍ", "RJ": "RIO DE JANEIRO", "RN": "RIO GRANDE DO NORTE",
+        "RS": "RIO GRANDE DO SUL", "RO": "RONDÔNIA", "RR": "RORAIMA", "SC": "SANTA CATARINA", "SP": "SÃO PAULO",
+        "SE": "SERGIPE", "TO": "TOCANTINS"
+      };
+
+      let acrescimoPercentual = 0;
+      if (pais === "brasil") {
+        const estadoNormalizado = estadosBrasil[estado] || Object.values(estadosBrasil).find(e => e.toUpperCase() === estado);
+        if (estadoNormalizado === "MINAS GERAIS") {
+          if (cidade === "patrocínio" || cidade === "guimarânia") {
+            acrescimoPercentual = 0;
+          } else if (cidade === "uberlândia") {
+            acrescimoPercentual = 0.15;
+          } else if (cidade === "patos de minas") {
+            acrescimoPercentual = 0.1;
+          } else {
+            acrescimoPercentual = 0.2;
+          }
+        } else if (estadoNormalizado) {
+          acrescimoPercentual = 0.3;
+        }
+      } else {
+        acrescimoPercentual = 0.4;
+      }
+
+      const valorComAcrescimo = total * (1 + acrescimoPercentual);
+      document.getElementById("valorTotalFinal").textContent = `Valor total do pacote personalizado: R$ ${valorComAcrescimo.toFixed(2)}`;
+      localStorage.setItem("valorTotal", valorComAcrescimo.toFixed(2));
+
+      mostrarOpcaoPagamento(valorComAcrescimo);
+    }
+
+    function mostrarOpcaoPagamento(valorTotal) {
+      document.getElementById("pagamentoPix").style.display = "none";
+      document.getElementById("pagamentoCartao").style.display = "none";
+
+      const pagamentoEscolhido = document.getElementById("formaPagamento").value;
+      if (pagamentoEscolhido === "pix") {
+        const entradaPix = valorTotal * 0.25;
+        const parcelasPix = (valorTotal * 0.75) / 7;
+        document.getElementById("pixEntrada").textContent = entradaPix.toFixed(2);
+        document.getElementById("pixParcelas").textContent = parcelasPix.toFixed(2);
+        document.getElementById("pagamentoPix").style.display = "block";
+      } else if (pagamentoEscolhido === "cartao") {
+        let parcelasTexto = "";
+        for (let i = 1; i <= 12; i++) {
+          const valorParcela = (valorTotal * (1 + 0.035 * i)) / i;
+          parcelasTexto += `${i}x de R$ ${valorParcela.toFixed(2)}<br>`;
+        }
+        document.getElementById("parcelasCartao").innerHTML = parcelasTexto;
+        document.getElementById("pagamentoCartao").style.display = "block";
+      }
+    }
+
+    function enviarWhatsApp() {
+      const nomeCliente = document.getElementById("nomeCliente").value;
+      const nomeNoivo = document.getElementById("nomeNoivo").value;
+      const dataCasamento = document.getElementById("dataCasamento").value;
+      const cidade = document.getElementById("cidadeCasamento").value;
+      const estado = document.getElementById("estadoCasamento").value;
+      const totalPacote = document.getElementById("valorTotalFinal").textContent;
+
+      const servicosSelecionados = Array.from(document.querySelectorAll('#servicosSelecionados input[type="checkbox"]:checked'))
+        .map(checkbox => checkbox.nextElementSibling.textContent.trim());
+
+      const mensagem = `Olá, gostaria de compartilhar o orçamento para o casamento:
+
+` +
+        `Cliente: ${nomeCliente}
+` +
+        `Nome do(a) Noivo(a): ${nomeNoivo}
+` +
+        `Data do Casamento: ${dataCasamento}
+` +
+        `Local: ${cidade}, ${estado}
+
+` +
+        `Serviços Selecionados: ${servicosSelecionados.join(', ')}
+
+` +
+        `${totalPacote}
+
+` +
+        `Aguardo retorno!`;
+
+      const whatsappLink = `https://wa.me/5534999048840?text=${encodeURIComponent(mensagem)}`;
+      window.open(whatsappLink, '_blank');
+    }
+
+    function salvarPDF() {
+      window.print();
+    }
+
+    document.getElementById("botaoWhatsApp").addEventListener("click", enviarWhatsApp);
+    document.querySelectorAll('#servicosSelecionados input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', calcularParcelamento);
+    });
+    document.getElementById('formaPagamento').addEventListener('change', calcularParcelamento);
+  });
+  </script>
+</body>
+</html>
