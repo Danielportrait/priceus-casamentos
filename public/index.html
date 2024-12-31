@@ -6,6 +6,7 @@
   <title>Orçamento Personalizado</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Estilos gerais */
     body {
       font-family: "Montserrat", sans-serif;
       background-color: #f5f5f5;
@@ -15,18 +16,15 @@
       color: #333;
     }
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 40px 20px;
       background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
     }
     header {
       background-color: #333;
       color: #fff;
       padding: 20px;
-      border-radius: 10px 10px 0 0;
       text-align: center;
     }
     h3 {
@@ -48,13 +46,11 @@
       padding: 12px;
       margin-bottom: 20px;
       border: 1px solid #ddd;
-      border-radius: 5px;
       font-size: 16px;
     }
     .product-item {
       background-color: #f0f0f0;
       border: 1px solid #ddd;
-      border-radius: 8px;
       padding: 10px;
       margin-bottom: 10px;
       display: flex;
@@ -72,19 +68,24 @@
       font-size: 16px;
     }
     #valorTotalFinal {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 20px;
+      background-color: #004d00; /* Verde escuro */
+      color: #ffffff; /* Texto branco */
+       padding: 10px;
+      border-radius: 5px;
       text-align: center;
-    }
+      font-size: 18px;
+     font-weight: bold;
+     margin-bottom: 20px;
+}
     .result-container {
-      background-color: #e7f4e4;
-      border-radius: 10px;
-      padding: 20px;
-      font-size: 18px;
-      margin-top: 20px;
-      color: #2c662d;
+      background-color: #004d00; /* Verde escuro */
+      color: #ffffff; /* Texto branco */
+      padding: 10px;
+      border-radius: 5px;
       text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
     #formaPagamento {
       display: block;
@@ -93,17 +94,19 @@
       font-size: 16px;
       padding: 10px;
       border: 1px solid #ddd;
-      border-radius: 5px;
       width: 100%;
       max-width: 300px;
       text-align: center;
     }
     .total-container {
+      background-color: #004d00; /* Verde escuro */
+      color: #ffffff; /* Texto branco */
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
       font-size: 18px;
       font-weight: bold;
-      color: #004d00;
       margin-bottom: 20px;
-      text-align: center;
     }
     .botao-whatsapp {
       background-color: #25d366;
@@ -111,7 +114,6 @@
       padding: 15px;
       font-size: 16px;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
       margin-top: 15px;
       width: 100%;
@@ -126,7 +128,6 @@
       padding: 15px;
       font-size: 16px;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
       margin-top: 15px;
       width: 100%;
@@ -141,23 +142,18 @@
       padding: 20px;
       text-align: center;
       margin-top: 40px;
-      border-radius: 0 0 10px 10px;
     }
     .background {
       display: flex;
       justify-content: center;
       margin-top: 20px;
+      width: 100%;
     }
     .background img {
-      max-width: 50%;
+      max-width: 100%;
       height: auto;
-      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-      
     }
-
-
     .calendarContainer {
       display: flex;
       justify-content: center;
@@ -167,300 +163,237 @@
       padding: 20px;
       box-sizing: border-box;
     }
-
     .googleCalendar {
       width: 80vw; /* 80% da largura da viewport */
       height: 80vh; /* 80% da altura da viewport */
-      max-width: 800px; /* Largura máxima */
+      max-width: 1200px; /* Largura máxima */
       max-height: 800px; /* Altura máxima */
       border: 0;
-      border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     }
-
     @media (max-width: 600px) {
       .googleCalendar {
         width: 95vw; /* 95% da largura da viewport */
         height: 95vh; /* 95% da altura da viewport */
       }
     }
-
     .apresentacao-container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f5f5;
-}
-
-.apresentacao-bloco {
-  width: 1200px;
-  height: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-}
-
-.foto-fotografo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 20px;
-}
-
-.apresentacao-texto {
-  max-width: 700px;
-}
-
-.apresentacao-texto h2 {
-  font-size: 36px;
-  margin-bottom: 15px;
-  color: #2c662d;
-}
-
-.apresentacao-texto p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333333;
-}
-
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5;
+    }
+    .apresentacao-bloco {
+      width: 1200px;
+      height: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+    .foto-fotografo {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    .apresentacao-texto {
+      max-width: 600px;
+    }
+    .apresentacao-texto h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #2c662d;
+    }
+    .apresentacao-texto p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333333;
+    }
+    .textoExplicativo {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5;
+      margin-top: 30px;
+    }
+    .textoExplicativo .apresentacao-bloco {
+      max-width: 800px;
+      text-align: center;
+    }
+    #orcamentoContainer {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+    .titulos {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #2c662d;
+      text-align: center;
+    }
+    .product-item {
+      background-color: #f9f9f9;
+      border: 1px solid #eee;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    #dadosClienteForm {
+      background-color: #f9f9f9;
+      border: 1px solid #eee;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    @media (max-width: 768px) {
+      .apresentacao-bloco {
+        flex-direction: column;
+        text-align: center;
+      }
+      .foto-fotografo {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 30px;
+      }
+      #dadosClienteForm {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      #dadosClienteForm label {
+        font-size: 14px;
+      }
+      #dadosClienteForm input,
+      #dadosClienteForm select {
+        font-size: 14px;
+        padding: 10px;
+      }
+      .botao-whatsapp,
+      .salvar-pdf-button {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="background">
-    <img src="https://cdn.glitch.global/8a203079-ef9b-4026-a35a-4697b5640e2d/1.jpg" alt="Imagem inicial" />
+    <img src="img/nav.png" alt="Imagem inicial" />
   </div>
+  <div class="apresentacao-container">
+    <div class="apresentacao-bloco">
+      <img src="img/fotoperfil.png" alt="Fotógrafo" class="foto-fotografo" />
+      <div class="apresentacao-texto">
+        <h2>O FOTÓGRAFO</h2>
+        <p>
+          Prazer, meu nome é Daniel Azevedo. Sou fotógrafo de casamentos de pessoas incríveis. Fotografo casamentos desde 2016 e ja fizemos mais de 200 casamentos nesses ultimos anos. Visitamos vários estados e cidades para registrar momentos lindos, espontâneos e felizes.
+        </p>
+      </div> 
+    </div>
+  </div>
+  
+ <!-- <div class="textoExplicativo">
+   <div class="apresentacao-textoexplicativo"> 
+    <h2>COMO FUNCIONA O ORÇAMENTO PERSONALIZADO?</h2>
+    <p class="textoExplicativo">
+      Bem-vindo ao nosso sistema de orçamento digital! Aqui, você poderá montar seu pacote personalizado de forma simples e prática. Basta preencher seus dados obrigatórios, escolher os serviços desejados, assim nosso sistema calculará automaticamente o valor total, formas de pagamento, valores de entrada e parcelas. Ao clicar em "Negociar no whatsapp" nosso sistema enviará seu orçamento diretamente para meu WhatsApp com uma cópia para o seu whatsapp.  Se desejar salvar uma copia de suas escolhas, basta clicar em "Baixar PDF". É fácil, rápido e seguro!
+    
+    </p>
+  </div>
+</div>
+-->
   <div class="container" id="orcamentoContainer">
-    <h3 class="titulos"> Dados do Cliente</h3>
+    <h3 class="titulos"> PREENCHA SEUS DADOS PARA MONTAR SEU PACOTE PERSONALIZADO</h3>
     <form id="dadosClienteForm">
-      <label for="nomeCliente">Nome do Cliente:</label>
-      <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite seu nome" />
-
+      <label for="nomeCliente">Seu Nome:</label>
+      <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite seu nome - exemplo: Daniel - Campo Obrigatório" />
       <label for="nomeNoivo">Nome do(a) Noivo(a):</label>
-      <input type="text" id="nomeNoivo" name="nomeNoivo" placeholder="Nome do noivo(a)" />
-
+      <input type="text" id="nomeNoivo" name="nomeNoivo" placeholder="Nome do noivo(a)- Campo Obrigatório" />
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Digite seu email" />
-
+      <input type="email" id="email" name="email" placeholder="Digite aqui seu email - Campo Obrigatório" />
       <label for="whatsapp">WhatsApp:</label>
-      <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite seu número de WhatsApp" pattern="[0-9]{10,11}" />
-
-      <label for="dataCasamento">Data do Casamento:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite aqui seu número de WhatsApp - Campo Obrigatório" pattern="[0-9]{10,11}" />
+      <label for="dataCasamento">Data do Casamento - Campo Obrigatório:</label>
       <input type="date" id="dataCasamento" name="dataCasamento" />
-
-      <label for="cidadeCasamento">Cidade do Casamento:</label>
-      <input type="text" id="cidadeCasamento" name="cidadeCasamento" placeholder="Digite a cidade" />
-
-      <label for="estadoCasamento">Estado do Casamento:</label>
-      <input type="text" id="estadoCasamento" name="estadoCasamento" placeholder="Digite o estado" />
-
-      <label for="paisCasamento">País do Casamento:</label>
-      <input type="text" id="paisCasamento" name="paisCasamento" placeholder="Digite o país" />
-
-      <label for="horarioCasamento">Horário do Casamento:</label>
+      <select id="paisCasamento">
+        <option value="">Selecione o país</option>
+        <option value="brasil">Brasil</option>
+        <option value="outro">Outro País</option>
+        <!-- Adicione outros países conforme necessário -->
+      </select>
+      
+      <select id="estadoCasamento" style="display: none;">
+        <option value="">Selecione o estado</option>
+      </select>
+      
+      <select id="cidadeCasamento" style="display: none;">
+        <option value="">Selecione a cidade</option>
+      </select>
+      
+      <input type="text" id="outroPais" placeholder="Digite o país" style="display: none;">
+      <input type="text" id="outraCidade" placeholder="Digite a cidade" style="display: none;">
+      <label for="horarioCasamento">Horário do Casamento - Campo Obrigatório</label>
       <input type="time" id="horarioCasamento" name="horarioCasamento" />
-
-      <label for="convidados">Quantidade de Convidados:</label>
-      <input type="number" id="convidados" name="convidados" placeholder="Número de convidados" />
+      <label for="convidados">Quantidade de Convidados - Campo Obrigatório:</label>
+      <input type="number" id="convidados" name="convidados" placeholder="Número de convidados do seu casamento" />
     </form>
-
+    <div id="mensagemErro" style="color: red; display: none;"></div>
     <h3 class="titulos">Selecione os Produtos e Serviços</h3>
     <ul id="servicosSelecionados">
-      <li class="product-item"><input type="checkbox" value="500" data-descricao="Sessão de pré-casamento 1 hora e 50 fotos" onchange="calcularParcelamento()" /><span>Sessão de pré-casamento 1 hora e 50 fotos</span></li>
-      <li class="product-item"><input type="checkbox" value="750" data-descricao="Sessão de pré-casamento 2 horas e 150 fotos" onchange="calcularParcelamento()" /><span>Sessão de pré-casamento 2 horas e 150 fotos</span></li>
-      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of do noivo 1 hora" onchange="calcularParcelamento()" /><span>Making of do noivo 1 hora</span></li>
-      <li class="product-item"><input type="checkbox" value="300" data-descricao="Making of do noivo 2 horas" onchange="calcularParcelamento()" /><span>Making of do noivo 2 horas</span></li>
-      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of da noiva 1 hora" onchange="calcularParcelamento()" /><span>Making of da noiva 1 hora</span></li>
-      <li class="product-item"><input type="checkbox" value="300" data-descricao="Making of da noiva 2 horas" onchange="calcularParcelamento()" /><span>Making of da noiva 2 horas</span></li>
-      <li class="product-item"><input type="checkbox" value="3000" data-descricao="Cobertura completa do casamento ao ar livre" onchange="calcularParcelamento()" /><span>Cobertura completa do casamento ao ar livre</span></li>
-      <li class="product-item"><input type="checkbox" value="3000" data-descricao="Cobertura completa do casamento na igreja" onchange="calcularParcelamento()" /><span>Cobertura completa do casamento na igreja</span></li>
-      <li class="product-item"><input type="checkbox" value="800" data-descricao="Cobertura do casamento civil no cartório" onchange="calcularParcelamento()" /><span>Cobertura do casamento civil no cartório</span></li>
-      <li class="product-item"><input type="checkbox" value="1000" data-descricao="Recepção/festa 4 horas" onchange="calcularParcelamento()" /><span>Recepção/festa 4 horas</span></li>
-      <li class="product-item"><input type="checkbox" value="1300" data-descricao="Recepção/festa 5 horas" onchange="calcularParcelamento()" /><span>Recepção/festa 5 horas</span></li>
-      <li class="product-item"><input type="checkbox" value="1600" data-descricao="Recepção/festa 6 horas" onchange="calcularParcelamento()" /><span>Recepção/festa 6 horas</span></li>
-      <li class="product-item"><input type="checkbox" value="2000" data-descricao="Álbum suede 30x30 10 lâminas" onchange="calcularParcelamento()" /><span>Álbum suede 30x30 10 lâminas</span></li>
-      <li class="product-item"><input type="checkbox" value="2500" data-descricao="Álbum madeira 30x30 15 lâminas" onchange="calcularParcelamento()" /><span>Álbum madeira 30x30 15 lâminas</span></li>
-      <li class="product-item"><input type="checkbox" value="3000" data-descricao="Álbum acrílico 30x30 20 lâminas" onchange="calcularParcelamento()" /><span>Álbum acrílico 30x30 20 lâminas</span></li>
-      <li class="product-item"><input type="checkbox" value="1200" data-descricao="Story e reels do dia do casamento" onchange="calcularParcelamento()" /><span>Story e reels do dia do casamento</span></li>
-      <li class="product-item"><input type="checkbox" value="1000" data-descricao="Same Day Edit" onchange="calcularParcelamento()" /><span>Same Day Edit</span></li>
-      <li class="product-item"><input type="checkbox" value="750" data-descricao="Quadro 100x70" onchange="calcularParcelamento()" /><span>Quadro 100x70</span></li>
-      <li class="product-item"><input type="checkbox" value="700" data-descricao="Receber no Pendrive" onchange="calcularParcelamento()" /><span>Receber no Pendrive</span></li>
-      <li class="product-item"><input type="checkbox" value="0" data-descricao="Receber no link" onchange="calcularParcelamento()" /><span>Receber no link</span></li>
+      <li class="product-item"><input type="checkbox" value="700" data-descricao="Sessão de pré-casamento 2 horas e 150 fotos (direto a usar 4 looks para cada, 2 locais, deslocamento não incluso)" onchange="calcularParcelamento()" disabled/><span>Sessão de pré-casamento 2 horas e 150 fotos Sessão de pré-casamento 2 horas e 150 fotos (direto a usar 4 looks para cada, 2 locais, deslocamento não incluso)</span></li>
+      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of do noivo 2 horas de duração (fotos feitas antes do casamento, onde o noivo se arruma para o casamento, veste o terno e fica pronto para a cerimonia)" onchange="calcularParcelamento()" disabled/><span>Making of do noivo (fotos feitas antes do casamento, onde o noivo se arruma para o casamento, veste o terno e fica pronto para a cerimonia)</span></li>
+      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of da noiva 2 horas de duração (fotos feitas antes do casamento, onde a noiva se arruma para o casamento, veste o vestido e fica pronta para a cerimonia)" onchange="calcularParcelamento()" disabled/><span>Making of da noiva (fotos feitas antes do casamento, onde a noiva se arruma para o casamento, veste o vestido e fica pronta para a cerimonia)</span></li>
+      <li class="product-item"><input type="checkbox" value="2800" data-descricao="Cobertura Fotográfica completa do casamento, na igreja ou ao ar livre, começando na fotografia de entradas dos padrinhos, pais, noivos e cerimonia completa com fotos protocolares dos convidados, pais, padrinhos e ensaio de pós casamento ddos noivos (NÃO INCLUI FOTOS DA FESTA/RECEPÇÃO)" onchange="calcularParcelamento()" disabled/><span>Cobertura Fotográfica completa do casamento na igreja ou ao ar livre, começando na fotografia de entradas dos padrinhos, pais, noivos e cerimonia completa com fotos protocolares dos convidados, pais, padrinhos e ensaio de pós casamento dos noivos (NÃO INCLUI FOTOS DA FESTA/RECEPÇÃO, se seu casamento tiver recepção adicione uma cobertura de recepção abaixo)</span></li>
+      <li class="product-item"><input type="checkbox" value="600" data-descricao="Cobertura do casamento civil no cartório - cobertura da recepção no cartório com fotos após a cerimonia com os convidados e fotos dos noivos num mini ensaio (NÃO INCLUI FOTOS DE FESTA/ALMOÇO/JANTAR/RECEPÇÃO) " onchange="calcularParcelamento()" disabled/><span>Cobertura do casamento civil no cartório cobertura da recepção no cartório com fotos após a cerimonia com os convidados e fotos dos noivos num mini ensaio (NÃO INCLUI FOTOS DE FESTA/ALMOÇO/JANTAR/RECEPÇÃO, se seu casamento tiver recepção adicione uma cobertura de recepção abaixo)</span></li>
+      <li class="product-item"><input type="checkbox" value="600" data-descricao="Cobertura Fotográfica completa da Recepção/festa 4 horas, com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas" onchange="calcularParcelamento()" disabled/><span>Cobertura Fotografica completa da Recepção/festa 4 horas com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas</span></li>
+      <li class="product-item"><input type="checkbox" value="800" data-descricao="Cobertuta Fotográfica completa da Recepção/festa 6 horas com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas" onchange="calcularParcelamento()" disabled/><span>Cobertura Fotografica completa da Recepção/festa 6 horas com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas</span></li>
+      <li class="product-item"><input type="checkbox" value="600" data-descricao="Receber suas fotos do casamento no Pendrive em um incrível envelope de couro e 10 fotos 10x15cm impressas" onchange="calcularParcelamento()" disabled/><span>Receber suas fotos do casamento no Pendrive em um incrível envelope de couro e 10 fotos 10x15cm impressas</span></li>
+      <li class="product-item"><input type="checkbox" value="0" data-descricao="Receber no link - sem custo" onchange="calcularParcelamento()" disabled/><span>Receber no link - sem custo adicional</span></li>
     </ul>
-
-    <div id="valorTotalFinal" class="total-container">Valor total do pacote personalizado: R$ 0</div>
-
-    <label for="formaPagamento">Selecionar forma de pagamento:</label>
-    <select id="formaPagamento" onchange="calcularParcelamento()">
+    <div id="valorTotalFinal" class="total-container">TOTAL: R$ 0,00</div>
+    <label for="formaPagamento"> <h3 class="titulos">Escolha a Forma de Pagamento aqui</h3></label>
+    <select id="formaPagamento" onchange="calcularValorTotal()">
       <option value="">Escolha a forma de pagamento</option>
+      <option value="avista">À vista com 10% de desconto</option>
       <option value="pix">PIX (25% de entrada e até 7 parcelas no PIX)</option>
       <option value="cartao">Cartão de Crédito (até 12x com juros)</option>
     </select>
-
     <div id="pagamentoPix" class="pagamento-opcao" style="display:none;">
       <h4>Pagamento via PIX</h4>
       <p>Entrada (25%): R$ <span id="pixEntrada"></span></p>
       <p>Parcelas Restantes (até 7x): R$ <span id="pixParcelas"></span></p>
     </div>
-
     <div id="pagamentoCartao" class="pagamento-opcao" style="display:none;">
       <h4>Pagamento via Cartão de Crédito</h4>
       <div id="parcelasCartao"></div>
     </div>
-
-    <div class="notas-adicionais">Deslocamento e despesas de viagem não inclusos.</div>
-
+    <div id="pagamentoAvista" class="pagamento-opcao" style="display:none;">
+      <h4>Pagamento à vista com 10% de desconto</h4>
+      <p>Valor com desconto: R$ <span id="valorAvista"></span></p>
+    </div>
+<br><br><br>
+   <!-- <h3 class="titulos"> Os Deslocamentos e despesas de viagem para casamentos fora de Patrocínio/MG não estão inclusos no orçamento, favor consultar pelo whatsapp.</h3>
+  -->
     <button class="botao-whatsapp" id="botaoWhatsApp">Negociar no WhatsApp</button>
-    
     <button class="salvar-pdf-button" onclick="salvarPDF()">Salvar Orçamento em PDF</button>
-
     <!--<h3 class="titulos"> VERIFIQUE NOSSA DISPONIBILIDADE PARA ATENDER SEU CASAMENTO PELA AGENDA ABAIXO </h3>
-    <ul class="calendarGoogle">
-      <iframe class="googleCalendar" src="https://calendar.google.com/calendar/embed?height=750&wkst=1&ctz=America%2FSao_Paulo&showPrint=0&showTabs=0&showTitle=0&showCalendars=0&src=ZGFuaWVsQGRhbmllbGF6ZXZlZG9mb3RvZ3JhZmlhLmNvbQ&color=%23D50000" 
-      style="border-width:0" 
-      frameborder="0" 
-      scrolling="no">
-      </iframe>-->
-    </ul>
-    <footer>
-      
-      
+    <div class="calendarContainer">
+      <iframe class="googleCalendar" src="https://calendar.google.com/calendar/embed?height=750&wkst=1&ctz=America%2FSao_Paulo&showPrint=0&showTabs=0&showTitle=0&showCalendars=0&src=ZGFuaWVsQGRhbmllbGF6ZXZlZG9mb3RvZ3JhZmlhLmNvbQ&color=%23D50000" frameborder="0" scrolling="no"></iframe>
+    </div>-->
+    <!--<footer>
       <p>Daniel Azevedo Fotografia - Desenvolvedor e idealizador PriceUs © 2024</p>
     </footer>
-  </div>
-
-
-
+  </div>-->
   <div class="background">
     <img src="https://cdn.glitch.global/8a203079-ef9b-4026-a35a-4697b5640e2d/5.jpg" alt="Imagem final 1" />
   </div>
-
-
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    function calcularParcelamento() {
-      const checkboxes = document.querySelectorAll('#servicosSelecionados input[type="checkbox"]');
-      let total = 0;
-
-      checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-          total += parseFloat(checkbox.value);
-        }
-      });
-
-      const cidade = document.getElementById("cidadeCasamento").value.trim().toLowerCase();
-      const estado = document.getElementById("estadoCasamento").value.trim().toUpperCase();
-      const pais = document.getElementById("paisCasamento").value.trim().toLowerCase();
-
-      const estadosBrasil = {
-        "AC": "ACRE", "AL": "ALAGOAS", "AP": "AMAPÁ", "AM": "AMAZONAS", "BA": "BAHIA",
-        "CE": "CEARÁ", "DF": "DISTRITO FEDERAL", "ES": "ESPÍRITO SANTO", "GO": "GOIÁS", "MA": "MARANHÃO",
-        "MT": "MATO GROSSO", "MS": "MATO GROSSO DO SUL", "MG": "MINAS GERAIS", "PA": "PARÁ", "PB": "PARAÍBA",
-        "PR": "PARANÁ", "PE": "PERNAMBUCO", "PI": "PIAUÍ", "RJ": "RIO DE JANEIRO", "RN": "RIO GRANDE DO NORTE",
-        "RS": "RIO GRANDE DO SUL", "RO": "RONDÔNIA", "RR": "RORAIMA", "SC": "SANTA CATARINA", "SP": "SÃO PAULO",
-        "SE": "SERGIPE", "TO": "TOCANTINS"
-      };
-
-      let acrescimoPercentual = 0;
-      if (pais === "brasil") {
-        const estadoNormalizado = estadosBrasil[estado] || Object.values(estadosBrasil).find(e => e.toUpperCase() === estado);
-        if (estadoNormalizado === "MINAS GERAIS") {
-          if (cidade === "patrocínio" || cidade === "guimarânia") {
-            acrescimoPercentual = 0;
-          } else if (cidade === "uberlândia") {
-            acrescimoPercentual = 0.15;
-          } else if (cidade === "patos de minas") {
-            acrescimoPercentual = 0.1;
-          } else {
-            acrescimoPercentual = 0.2;
-          }
-        } else if (estadoNormalizado) {
-          acrescimoPercentual = 0.3;
-        }
-      } else {
-        acrescimoPercentual = 0.4;
-      }
-
-      const valorComAcrescimo = total * (1 + acrescimoPercentual);
-      document.getElementById("valorTotalFinal").textContent = `Valor total do pacote personalizado: R$ ${valorComAcrescimo.toFixed(2)}`;
-      localStorage.setItem("valorTotal", valorComAcrescimo.toFixed(2));
-
-      mostrarOpcaoPagamento(valorComAcrescimo);
-    }
-
-    function mostrarOpcaoPagamento(valorTotal) {
-      document.getElementById("pagamentoPix").style.display = "none";
-      document.getElementById("pagamentoCartao").style.display = "none";
-
-      const pagamentoEscolhido = document.getElementById("formaPagamento").value;
-      if (pagamentoEscolhido === "pix") {
-        const entradaPix = valorTotal * 0.25;
-        const parcelasPix = (valorTotal * 0.75) / 7;
-        document.getElementById("pixEntrada").textContent = entradaPix.toFixed(2);
-        document.getElementById("pixParcelas").textContent = parcelasPix.toFixed(2);
-        document.getElementById("pagamentoPix").style.display = "block";
-      } else if (pagamentoEscolhido === "cartao") {
-        let parcelasTexto = "";
-        for (let i = 1; i <= 12; i++) {
-          const valorParcela = (valorTotal * (1 + 0.035 * i)) / i;
-          parcelasTexto += `${i}x de R$ ${valorParcela.toFixed(2)}<br>`;
-        }
-        document.getElementById("parcelasCartao").innerHTML = parcelasTexto;
-        document.getElementById("pagamentoCartao").style.display = "block";
-      }
-    }
-
-    function enviarWhatsApp() {
-      const nomeCliente = document.getElementById("nomeCliente").value;
-      const nomeNoivo = document.getElementById("nomeNoivo").value;
-      const dataCasamento = document.getElementById("dataCasamento").value;
-      const cidade = document.getElementById("cidadeCasamento").value;
-      const estado = document.getElementById("estadoCasamento").value;
-      const totalPacote = document.getElementById("valorTotalFinal").textContent;
-
-      const servicosSelecionados = Array.from(document.querySelectorAll('#servicosSelecionados input[type="checkbox"]:checked'))
-        .map(checkbox => checkbox.nextElementSibling.textContent.trim());
-
-      const mensagem = `Olá, gostaria de compartilhar o orçamento para o casamento:
-
-` +
-        `Cliente: ${nomeCliente}
-` +
-        `Nome do(a) Noivo(a): ${nomeNoivo}
-` +
-        `Data do Casamento: ${dataCasamento}
-` +
-        `Local: ${cidade}, ${estado}
-
-` +
-        `Serviços Selecionados: ${servicosSelecionados.join(', ')}
-
-` +
-        `${totalPacote}
-
-` +
-        `Aguardo retorno!`;
-
-      const whatsappLink = `https://wa.me/5534999048840?text=${encodeURIComponent(mensagem)}`;
-      window.open(whatsappLink, '_blank');
-    }
-
-    function salvarPDF() {
-      window.print();
-    }
-
-    document.getElementById("botaoWhatsApp").addEventListener("click", enviarWhatsApp);
-    document.querySelectorAll('#servicosSelecionados input[type="checkbox"]').forEach(checkbox => {
-      checkbox.addEventListener('change', calcularParcelamento);
-    });
-    document.getElementById('formaPagamento').addEventListener('change', calcularParcelamento);
-  });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
