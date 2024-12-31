@@ -1,15 +1,94 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Função para calcular o acréscimo por localização
-  function calcularAcrescimoPorLocalizacao(cidade, estado) {
-    let acrescimoPercentual = 0;
-    if (estado === "Minas Gerais") {
-      if (cidade === "Patrocínio" || cidade === "Guimarânia") {
-        acrescimoPercentual = 0;
-      } else if (cidade === "Uberlândia") {
-        acrescimoPercentual = 0.15;
-      } else if (cidade === "Patos de Minas") {
-        acrescimoPercentual = 0.1;
-      } else {
+  function validarCamposObrigatorios() {
+    const nomeCliente = document.getElementById("nomeCliente").value.trim();
+    const nomeNoivo = document.getElementById("nomeNoivo").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const whatsapp = document.getElementById("whatsapp").value.trim();
+    const dataCasamento = document.getElementById("dataCasamento").value.trim();
+    const cidade = document.getElementById("cidadeCasamento").value.trim();
+    const estado = document.getElementById("estadoCasamento").value.trim();
+    const pais = document.getElementById("paisCasamento").value.trim();
+    const horarioCasamento = document.getElementById("horarioCasamento").value.trim();
+    const convidados = document.getElementById("convidados").value.trim();
+
+    const camposPreenchidos = nomeCliente && nomeNoivo && email && whatsapp && dataCasamento && cidade && estado && pais && horarioCasamento && convidados;
+
+    const checkboxes = document.querySelectorAll('#servicosSelecionados input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.disabled = !camposPreenchidos;
+    });
+
+    const mensagemErro = document.getElementById("mensagemErro");
+    if (!camposPreenchidos) {
+      mensagemErro.style.display = "block";
+      mensagemErro.textContent = "Por favor, preencha todos os campos obrigatórios corretamente.";
+      
+      // Destacar campos que não foram preenchidos corretamente
+      document.querySelectorAll('#nomeCliente, #nomeNoivo, #email, #whatsapp, #dataCasamento, #cidadeCasamento, #estadoCasamento, #paisCasamento, #horarioCasamento, #convidados').forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderColor = "red";
+        } else {
+          input.style.borderColor = "";
+        }
+      });
+    } else {
+      mensagemErro.style.display = "none";
+      document.querySelectorAll('#nomeCliente, #nomeNoivo, #email, #whatsapp, #dataCasamento, #cidadeCasamento, #estadoCasamento, #paisCasamento, #horarioCasamento, #convidados').forEach(input => {
+        input.style.borderColor = "";
+      });
+    }
+  }
+
+  document.querySelectorAll('#nomeCliente, #nomeNoivo, #email, #whatsapp, #dataCasamento, #cidadeCasamento, #estadoCasamento, #paisCasamento, #horarioCasamento, #convidados').forEach(input => {
+    input.addEventListener('input', validarCamposObrigatorios);
+  });
+
+  window.calcularParcelamento = function calcularParcelamento() {
+    const checkboxes = document.querySelectorAll('#servicosSelecionados input[type="checkbox"]');
+    let total = 0;
+    let adicionarAcrescimoItem = false;
+  
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        total += parseFloat(checkbox.value);
+  
+        // Verificar itens específicos para aplicar acréscimo de 30%
+        if (
+          checkbox.nextElementSibling.textContent.includes("Cobertura completa do casamento ao ar livre") ||
+          checkbox.nextElementSibling.textContent.includes("Cobertura completa do casamento na igreja")
+        ) {
+          adicionarAcrescimoItem = true;
+        }
+      }
+    });
+  
+    const cidade = document.getElementById("cidadeCasamento").value.trim().toLowerCase();
+    const estado = document.getElementById("estadoCasamento").value.trim().toUpperCase();
+    const pais = document.getElementById("paisCasamento").value.trim().toLowerCase();
+    const dataCasamento = document.getElementById("dataCasamento").value.trim();
+  
+    const estadosBrasil = {
+      "AC": "ACRE", "AL": "ALAGOAS", "AP": "AMAPÁ", "AM": "AMAZONAS", "BA": "BAHIA",
+      "CE": "CEARÁ", "DF": "DISTRITO FEDERAL", "ES": "ESPÍRITO SANTO", "GO": "GOIÁS", "MA": "MARANHÃO",
+      "MT": "MATO GROSSO", "MS": "MATO GROSSO DO SUL", "MG": "MINAS GERAIS", "PA": "PARÁ", "PB": "PARAÍBA",
+      "PR": "PARANÁ", "PE": "PERNAMBUCO", "PI": "PIAUÍ", "RJ": "RIO DE JANEIRO", "RN": "RIO GRANDE DO NORTE",
+      "RS": "RIO GRANDE DO SUL", "RO": "RONDÔNIA", "RR": "RORAIMA", "SC": "SANTA CATARINA", "SP": "SÃO PAULO",
+      "SE": "SERGIPE", "TO": "TOCANTINS"
+    };
+  
+    let acrescimoPercentual = 0.30;
+  
+    // Verificar país e estado
+    if (pais === "brasil") {
+      const estadoNormalizado = estadosBrasil[estado] || Object.values(estadosBrasil).find(e => e.toUpperCase() === estado);
+      if (estadoNormalizado === "MINAS GERAIS") {
+        if (cidade === "patrocínio" || cidade === "guimarânia") {
+          acrescimoPercentual = 0;
+        } else if (cidade === "uberlândia") {
+          acrescimoPercentual = 0.30;
+        } else if (cidade === "patos de minas") {
+          acrescimoPercentual = 0.1;
+        } else {
         acrescimoPercentual = 0.2;
       }
     } else {
