@@ -1,0 +1,8 @@
+[build]
+  publish = "public" # Diretório onde está o index.html
+  command = "" # Deixe vazio se não houver comando de build
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

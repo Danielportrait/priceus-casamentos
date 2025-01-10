@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orçamento Personalizado</title>
+  <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+  <div class="background">
+    <img src="img/nav.png" alt="Imagem inicial" />
+  </div>
+  <div class="apresentacao-container">
+    <div class="apresentacao-bloco">
+      <img src="img/fotoperfil.png" alt="Fotógrafo" class="foto-fotografo" />
+      <div class="apresentacao-texto">
+        <h2>O FOTÓGRAFO</h2>
+        <p>
+          Prazer, meu nome é Daniel Azevedo. Sou fotógrafo de casamentos de pessoas incríveis. Fotografo casamentos desde 2016 e ja fizemos mais de 200 casamentos nesses ultimos anos. Visitamos vários estados e cidades para registrar momentos lindos, espontâneos e felizes.
+        </p>
+      </div> 
+    </div>
+  </div>
+  
+ <!-- <div class="textoExplicativo">
+   <div class="apresentacao-textoexplicativo"> 
+    <h2>COMO FUNCIONA O ORÇAMENTO PERSONALIZADO?</h2>
+    <p class="textoExplicativo">
+      Bem-vindo ao nosso sistema de orçamento digital! Aqui, você poderá montar seu pacote personalizado de forma simples e prática. Basta preencher seus dados obrigatórios, escolher os serviços desejados, assim nosso sistema calculará automaticamente o valor total, formas de pagamento, valores de entrada e parcelas. Ao clicar em "Negociar no whatsapp" nosso sistema enviará seu orçamento diretamente para meu WhatsApp com uma cópia para o seu whatsapp.  Se desejar salvar uma copia de suas escolhas, basta clicar em "Baixar PDF". É fácil, rápido e seguro!
+    
+    </p>
+  </div>
+</div>
+-->
+  <div class="container" id="orcamentoContainer">
+    <h3 class="titulos"> PREENCHA SEUS DADOS PARA MONTAR SEU PACOTE PERSONALIZADO</h3>
+    <form id="dadosClienteForm">
+      <label for="nomeCliente">Seu Nome:</label>
+      <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite seu nome - exemplo: Daniel - Campo Obrigatório" />
+      <label for="nomeNoivo">Nome do(a) Noivo(a):</label>
+      <input type="text" id="nomeNoivo" name="nomeNoivo" placeholder="Nome do noivo(a)- Campo Obrigatório" />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Digite aqui seu email - Campo Obrigatório" />
+      <label for="whatsapp">WhatsApp:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite aqui seu número de WhatsApp - Campo Obrigatório" pattern="[0-9]{10,11}" />
+      <label for="dataCasamento">Data do Casamento - Campo Obrigatório:</label>
+      <input type="date" id="dataCasamento" name="dataCasamento" />
+      <select id="paisCasamento">
+        <option value="">Selecione o país</option>
+        <option value="brasil">Brasil</option>
+        <option value="outro">Outro País</option>
+        <!-- Adicione outros países conforme necessário -->
+      </select>
+      
+      <select id="estadoCasamento" style="display: none;">
+        <option value="">Selecione o estado</option>
+      </select>
+      
+      <select id="cidadeCasamento" style="display: none;">
+        <option value="">Selecione a cidade</option>
+      </select>
+      
+      <input type="text" id="outroPais" placeholder="Digite o país" style="display: none;">
+      <input type="text" id="outraCidade" placeholder="Digite a cidade" style="display: none;">
+      <label for="horarioCasamento">Horário do Casamento - Campo Obrigatório</label>
+      <input type="time" id="horarioCasamento" name="horarioCasamento" />
+      <label for="convidados">Quantidade de Convidados - Campo Obrigatório:</label>
+      <input type="number" id="convidados" name="convidados" placeholder="Número de convidados do seu casamento" />
+    </form>
+    <div id="mensagemErro" style="color: red; display: none;"></div>
+    <h3 class="titulos">Selecione os Produtos e Serviços</h3>
+    <ul id="servicosSelecionados">
+      <li class="product-item"><input type="checkbox" value="700" data-descricao="Sessão de pré-casamento 2 horas e 150 fotos (direto a usar 4 looks para cada, 2 locais, deslocamento não incluso)" onchange="calcularParcelamento()" disabled/><span>Sessão de pré-casamento 2 horas e 150 fotos Sessão de pré-casamento 2 horas e 150 fotos (direto a usar 4 looks para cada, 2 locais, deslocamento não incluso)</span></li>
+      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of do noivo 2 horas de duração (fotos feitas antes do casamento, onde o noivo se arruma para o casamento, veste o terno e fica pronto para a cerimonia)" onchange="calcularParcelamento()" disabled/><span>Making of do noivo (fotos feitas antes do casamento, onde o noivo se arruma para o casamento, veste o terno e fica pronto para a cerimonia)</span></li>
+      <li class="product-item"><input type="checkbox" value="200" data-descricao="Making of da noiva 2 horas de duração (fotos feitas antes do casamento, onde a noiva se arruma para o casamento, veste o vestido e fica pronta para a cerimonia)" onchange="calcularParcelamento()" disabled/><span>Making of da noiva (fotos feitas antes do casamento, onde a noiva se arruma para o casamento, veste o vestido e fica pronta para a cerimonia)</span></li>
+      <li class="product-item"><input type="checkbox" value="2800" data-descricao="Cobertura Fotográfica completa do casamento, na igreja ou ao ar livre, começando na fotografia de entradas dos padrinhos, pais, noivos e cerimonia completa com fotos protocolares dos convidados, pais, padrinhos e ensaio de pós casamento ddos noivos (NÃO INCLUI FOTOS DA FESTA/RECEPÇÃO)" onchange="calcularParcelamento()" disabled/><span>Cobertura Fotográfica completa do casamento na igreja ou ao ar livre, começando na fotografia de entradas dos padrinhos, pais, noivos e cerimonia completa com fotos protocolares dos convidados, pais, padrinhos e ensaio de pós casamento dos noivos (NÃO INCLUI FOTOS DA FESTA/RECEPÇÃO, se seu casamento tiver recepção adicione uma cobertura de recepção abaixo)</span></li>
+      <li class="product-item"><input type="checkbox" value="600" data-descricao="Cobertura do casamento civil no cartório - cobertura da recepção no cartório com fotos após a cerimonia com os convidados e fotos dos noivos num mini ensaio (NÃO INCLUI FOTOS DE FESTA/ALMOÇO/JANTAR/RECEPÇÃO) " onchange="calcularParcelamento()" disabled/><span>Cobertura do casamento civil no cartório cobertura da recepção no cartório com fotos após a cerimonia com os convidados e fotos dos noivos num mini ensaio (NÃO INCLUI FOTOS DE FESTA/ALMOÇO/JANTAR/RECEPÇÃO, se seu casamento tiver recepção adicione uma cobertura de recepção abaixo)</span></li>
+      <li class="product-item"><input type="checkbox" value="600" data-descricao="Cobertura Fotográfica completa da Recepção/festa 4 horas, com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas" onchange="calcularParcelamento()" disabled/><span>Cobertura Fotografica completa da Recepção/festa 4 horas com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas</span></li>
+      <li class="product-item"><input type="checkbox" value="800" data-descricao="Cobertuta Fotográfica completa da Recepção/festa 6 horas com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas" onchange="calcularParcelamento()" disabled/><span>Cobertura Fotografica completa da Recepção/festa 6 horas com fotos da decoração, fotos dos convidados, fotos dos noivos na decoração, fotos dos shows, fotos espontâneas, fotos protocolares de brinde, gravata, jogando o buquê, fotos de boate e divertidas</span></li>
+      <li class="product-item"><input type="checkbox" value="600" data-descricao="Receber suas fotos do casamento no Pendrive em um incrível envelope de couro e 10 fotos 10x15cm impressas" onchange="calcularParcelamento()" disabled/><span>Receber suas fotos do casamento no Pendrive em um incrível envelope de couro e 10 fotos 10x15cm impressas</span></li>
+      <li class="product-item"><input type="checkbox" value="0" data-descricao="Receber no link - sem custo" onchange="calcularParcelamento()" disabled/><span>Receber no link - sem custo adicional</span></li>
+    </ul>
+    <div id="valorTotalFinal" class="total-container">TOTAL: R$ 0,00</div>
+    <label for="formaPagamento"> <h3 class="titulos">Escolha a Forma de Pagamento aqui</h3></label>
+    <select id="formaPagamento" onchange="calcularValorTotal()">
+      <option value="">Escolha a forma de pagamento</option>
+      <option value="avista">À vista com 10% de desconto</option>
+      <option value="pix">PIX (25% de entrada e até 7 parcelas no PIX)</option>
+      <option value="cartao">Cartão de Crédito (até 12x com juros)</option>
+    </select>
+    <div id="pagamentoPix" class="pagamento-opcao" style="display:none;">
+      <h4>Pagamento via PIX</h4>
+      <p>Entrada (25%): R$ <span id="pixEntrada"></span></p>
+      <p>Parcelas Restantes (até 7x): R$ <span id="pixParcelas"></span></p>
+    </div>
+    <div id="pagamentoCartao" class="pagamento-opcao" style="display:none;">
+      <h4>Pagamento via Cartão de Crédito</h4>
+      <div id="parcelasCartao"></div>
+    </div>
+    <div id="pagamentoAvista" class="pagamento-opcao" style="display:none;">
+      <h4>Pagamento à vista com 10% de desconto</h4>
+      <p>Valor com desconto: R$ <span id="valorAvista"></span></p>
+    </div>
+    
+<br><br><br>
+   <!-- <h3 class="titulos"> Os Deslocamentos e despesas de viagem para casamentos fora de Patrocínio/MG não estão inclusos no orçamento, favor consultar pelo whatsapp.</h3>
+  -->
+    <button class="botao-whatsapp" id="botaoWhatsApp">Negociar no WhatsApp</button>
+    <button class="salvar-pdf-button" onclick="salvarPDF()">Salvar Orçamento em PDF</button>
+    <!--<h3 class="titulos"> VERIFIQUE NOSSA DISPONIBILIDADE PARA ATENDER SEU CASAMENTO PELA AGENDA ABAIXO </h3>
+    <div class="calendarContainer">
+      <iframe class="googleCalendar" src="https://calendar.google.com/calendar/embed?height=750&wkst=1&ctz=America%2FSao_Paulo&showPrint=0&showTabs=0&showTitle=0&showCalendars=0&src=ZGFuaWVsQGRhbmllbGF6ZXZlZG9mb3RvZ3JhZmlhLmNvbQ&color=%23D50000" frameborder="0" scrolling="no"></iframe>
+    </div>-->
+    
+  </div>
+  <div class="background">
+    <img src="https://cdn.glitch.global/8a203079-ef9b-4026-a35a-4697b5640e2d/5.jpg" alt="Imagem final 1" />
+  </div>
+  <footer>
+    <p>Daniel Azevedo Fotografia - Desenvolvedor e idealizador PriceUs © 2025</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

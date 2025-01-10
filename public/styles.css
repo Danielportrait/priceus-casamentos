@@ -1,0 +1,279 @@
+ /* Estilos gerais */
+ body {
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+ 
+ 
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+header {
+
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #2c662d;
+  text-align: center;
+}
+form label {
+  font-size: 16px;
+  width: 600px;
+  margin-bottom: 5px;
+  display: flex;
+  color: #333;
+  text-align: left;
+  background-color: white;
+}
+form input,
+form select {
+  width: 550px;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  align-items: left;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 5px;
+}
+.product-item {
+  background-color: #fffcfc;
+  border: 1px solid #fffdfd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+.product-item:hover {
+  background-color: #ffffff;
+}
+.product-item input[type="checkbox"] {
+  margin-right: 5px;
+  transform: scale(1.2);
+}
+.product-item span {
+  font-size: 16px;
+}
+#valorTotalFinal {
+  background-color: #004d00; /* Verde escuro */
+  color: #ffffff; /* Texto branco */
+   padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+ font-weight: bold;
+ margin-bottom: 20px;
+}
+.result-container {
+  background-color: #004d00; /* Verde escuro */
+  color: #ffffff; /* Texto branco */
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#formaPagamento {
+  display: block;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+.total-container {
+  background-color: #004d00; /* Verde escuro */
+  color: #ffffff; /* Texto branco */
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.botao-whatsapp {
+  background-color: #25d366;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+}
+.botao-whatsapp:hover {
+  background-color: #20b85d;
+}
+.salvar-pdf-button {
+  background-color: #ff9800;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+}
+.salvar-pdf-button:hover {
+  background-color: #e68900;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+.background {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.background img {
+  max-width: 800px;
+  height: auto;
+
+}
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.googleCalendar {
+
+  max-height: 800px; /* Altura máxima */
+  border: 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 600px) {
+  .googleCalendar {
+    width: 95vw; /* 95% da largura da viewport */
+    height: 95vh; /* 95% da altura da viewport */
+  }
+}
+.apresentacao-container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 20px;
+}
+.apresentacao-bloco {
+  width: 800px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+.foto-fotografo {
+  width: 400px;
+  height: 600px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.apresentacao-texto {
+  max-width: 600px;
+}
+.apresentacao-texto h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #2c662d;
+}
+.apresentacao-texto p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+}
+.textoExplicativo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  margin-top: 30px;
+}
+.textoExplicativo .apresentacao-bloco {
+  max-width: 800px;
+  text-align: center;
+}
+#orcamentoContainer {
+  padding: 60px 0;
+  background-color: #fff;
+}
+.titulos {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #2c662d;
+  text-align: center;
+}
+.product-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+#dadosClienteForm {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .apresentacao-bloco {
+    flex-direction: column;
+    text-align: center;
+  }
+  .foto-fotografo {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  #dadosClienteForm {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  #dadosClienteForm label {
+    font-size: 14px;
+  }
+  #dadosClienteForm input,
+  #dadosClienteForm select {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .botao-whatsapp,
+  .salvar-pdf-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
